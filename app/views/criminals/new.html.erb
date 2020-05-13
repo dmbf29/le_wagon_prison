@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Add Prisoner to <%= @prison.name %></h1>
+
+  <%= simple_form_for [@prison, @criminal] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :sentence_days, input_html: { min: 1 } %>
+    <%= f.input :image_url, input_html: { value:  @random_image_url } %>
+    <%= f.submit class: 'btn btn-danger' %>
+  <% end %>
+
+</div>
