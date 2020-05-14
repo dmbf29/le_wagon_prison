@@ -1,0 +1,17 @@
+<div class="container mt-3">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-6">
+      <h1>Convict <%= @criminal.name %></h1>
+      <div class="">
+        <% @criminal.crimes.each do |crime| %>
+          <span><%= crime.name %></span>
+        <% end %>
+      </div>
+
+      <%= simple_form_for [@criminal, @conviction] do |f| %>
+        <%= f.association :crime, collection: @crimes, include_blank: false, input_html: { multiple: true }, include_hidden: false %>
+        <%= f.submit class: 'btn btn-danger' %>
+      <% end %>
+    </div>
+  </div>
+</div>

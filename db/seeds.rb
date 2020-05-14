@@ -1,5 +1,7 @@
 require 'open-uri'
 
+puts 'Destroying the criminals..'
+Criminal.destroy_all if Rails.env.development?
 puts 'Destroying the prisons..'
 Prison.destroy_all if Rails.env.development?
 
@@ -42,3 +44,17 @@ puts "Creating criminals for #{azkaban.name}..."
     prison: azkaban
   )
 end
+
+
+crimes = ['indecent exposure', 'bullying', 'murder', 'poor indentation', 'kidnapping', 'horse pill theft']
+puts "Creating crimes..."
+crimes.each do |crime|
+  Crime.create!(
+    name: crime
+  )
+end
+
+
+
+
+
