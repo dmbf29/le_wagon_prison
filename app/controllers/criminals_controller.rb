@@ -8,6 +8,7 @@ class CriminalsController < ApplicationController
   end
 
   def create
+    raise
     @prison = Prison.find(params[:prison_id])
     @criminal = Criminal.new(criminal_params)
     @criminal.prison = @prison
@@ -27,6 +28,6 @@ class CriminalsController < ApplicationController
   private
 
   def criminal_params
-    params.require(:criminal).permit(:name, :sentence_days, :image_url)
+    params.require(:criminal).permit(:name, :sentence_days, :image_url, :photo)
   end
 end

@@ -1,6 +1,11 @@
 <div class="container mt-3">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-6">
+
+      <%= cl_image_tag("gftqtznrk64auaq38mqg",
+            width: 500, height: 400, crop: :thumb, gravity: :face) %>
+
+
       <h1>Convict <%= @criminal.name %></h1>
       <div class="">
         <% @criminal.crimes.each do |crime| %>
