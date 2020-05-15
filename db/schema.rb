@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2020_05_14_083826) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "convictions", force: :cascade do |t|
-    t.integer "criminal_id", null: false
-    t.integer "crime_id", null: false
+    t.bigint "criminal_id", null: false
+    t.bigint "crime_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["crime_id"], name: "index_convictions_on_crime_id"
@@ -30,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_05_14_083826) do
   create_table "criminals", force: :cascade do |t|
     t.string "name"
     t.integer "sentence_days"
-    t.integer "prison_id", null: false
+    t.bigint "prison_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image_url"
